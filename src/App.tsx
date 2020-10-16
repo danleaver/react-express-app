@@ -4,7 +4,9 @@ import socketIOClient from "socket.io-client";
 function App () {
   // const ENDPOINT = "/"
   // const ENDPOINT = "http://localhost:4001" this will access the port on your local machine, duh..
-  const ENDPOINT = "http://www.offthecouch.tk:4001"
+  // const ENDPOINT = "http://www.offthecouch.tk:4001" might be https
+  const ENDPOINT = "https://www.offthecouch.tk:4001"
+
 
   const socket = socketIOClient(ENDPOINT);
 
