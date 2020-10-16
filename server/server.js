@@ -17,8 +17,8 @@ const socketIo = require("socket.io");
 // const usersRouter = require('./routes/users-route')
 
 // Setup default port
-const PORT = process.env.PORT || 4000
-const port = process.env.PORT || 4001;
+// const PORT = process.env.PORT || 4000
+const port = process.env.PORT || 4000;
 
 
 // Create express app
@@ -38,9 +38,7 @@ const io = socketIo(server);
 app.use(express.static(path.join(__dirname, 'build')));
 
 
-io.on("connection", (socket) => {
-  console.log("connection has been made")
-});
+
   // app.get('/', function(req, res) {
 //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 // });
@@ -72,8 +70,12 @@ io.on("connection", (socket) => {
 // })
 
 // Start express app
-app.listen(PORT, function() {
-  console.log(`Server is running on: ${PORT}`)
-})
+// app.listen(PORT, function() {
+//   console.log(`Server is running on: ${PORT}`)
+// })
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
+
+io.on("connection", (socket) => {
+  console.log("connection has been made")
+});
