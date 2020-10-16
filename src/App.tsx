@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import socketIOClient from "socket.io-client";
 
-function App() {
+function App () {
+  // const ENDPOINT = "/"
+  const ENDPOINT = "http://localhost:4001"
+  // const ENDPOINT = "/"
+
+  const socket = socketIOClient(ENDPOINT);
+
+  const sendSocket = () => {
+    socket.send("a message to you")
+  }
+
+  useEffect(() => {
+
+    sendSocket()
+    // socket.send("a message to you")
+        
+    // return () => socket.disconnect();
+  }, []);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <img src="https://res.cloudinary.com/danleaver/image/upload/v1601914154/dpl_review/cello_aqtoay.jpg" />  
+  )
 }
+
+
 
 export default App;
